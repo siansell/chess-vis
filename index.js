@@ -1,55 +1,5 @@
 import * as d3 from 'd3'
 
-// @TODO Some funky way of doing this with character codes. Don't limit to 8
-const getFile = x => {
-    switch (x) {
-        case 0:
-            return 'a'
-        case 1:
-            return 'b'
-        case 2:
-            return 'c'
-        case 3:
-            return 'd'
-        case 4:
-            return 'e'
-        case 5:
-            return 'f'
-        case 6:
-            return 'g'
-        case 7:
-            return 'h'
-        default:
-            return ''
-    }
-}
-
-// @TODO Some funky way of doing this with maffs. Don't limit to 8
-const getRank = y => {
-    switch (y) {
-        case 0:
-            return 8
-        case 1:
-            return 7
-        case 2:
-            return 6
-        case 3:
-            return 5
-        case 4:
-            return 4
-        case 5:
-            return 3
-        case 6:
-            return 2
-        case 7:
-            return 1
-        default:
-            return ''
-    }
-}
-
-const getSquareName = d => `${getFile(d.x)}${getRank(d.y)}`
-
 const marginTop = 30
 const marginLeft = 30
 const squareSize = 80
@@ -58,6 +8,10 @@ const boardSize = boardDimension * squareSize
 
 const whiteSquareColour = "#f0f5f2"
 const blackSquareColour = "#dee3e0"
+
+const getFile = x => String.fromCharCode(x + 97) // Maps 0 -> 'a', 1 -> 'b' etc.
+const getRank = y => boardDimension - y % boardDimension
+const getSquareName = d => `${getFile(d.x)}${getRank(d.y)}`
 
 const board = [];
 
@@ -106,6 +60,8 @@ svg
     .append('text')
     .attr("x", d => d.x * squareSize + squareSize / 2)
     .attr("y", d => d.y * squareSize + squareSize / 2)
+    .attr("text-anchor", "middle")
+    .attr("dominant-baseline", "middle")    
     .style('font-family', 'Verdana')
     .text(d => getSquareName(d))
 
