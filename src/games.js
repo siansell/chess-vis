@@ -31,6 +31,45 @@ b4 {[%timestamp 73]} 22... Rb8 {[%timestamp 28]} 23. b5 {[%timestamp 46]} 23...
 cxb5 {[%timestamp 32]} 24. Nxb5 {[%timestamp 10]} 24... Rcc8 {[%timestamp 36]}
 25. c6 {[%timestamp 59]} 25... Nb6 {[%timestamp 82]} 26. dxe5 {[%timestamp 8]}
 26... Ne8 {[%timestamp 6]} 1-0
+
+[Event "Live Chess"]
+[Site "Chess.com"]
+[Date "2021.02.16"]
+[Round "?"]
+[White "PhatAsp"]
+[Black "goofballLogic"]
+[Result "0-1"]
+[ECO "C23"]
+[WhiteElo "879"]
+[BlackElo "915"]
+[TimeControl "300"]
+[EndTime "13:02:05 PST"]
+[Termination "goofballLogic won by checkmate"]
+
+1. e4 {[%timestamp 1]} 1... e5 {[%timestamp 1]} 2. Bc4 {[%timestamp 4]} 2... d6
+{[%timestamp 13]} 3. Nf3 {[%timestamp 4]} 3... Be7 {[%timestamp 9]} 4. O-O
+{[%timestamp 5]} 4... Bf6 {[%timestamp 8]} 5. Nc3 {[%timestamp 29]} 5... Ne7
+{[%timestamp 9]} 6. Nd5 {[%timestamp 5]} 6... Nxd5 {[%timestamp 34]} 7. Bxd5
+{[%timestamp 5]} 7... O-O {[%timestamp 12]} 8. c3 {[%timestamp 28]} 8... c6
+{[%timestamp 8]} 9. d4 {[%timestamp 5]} 9... cxd5 {[%timestamp 11]} 10. dxe5
+{[%timestamp 4]} 10... Be7 {[%timestamp 10]} 11. exd6 {[%timestamp 14]} 11...
+Bxd6 {[%timestamp 9]} 12. Ng5 {[%timestamp 17]} 12... Be7 {[%timestamp 55]} 13.
+f4 {[%timestamp 133]} 13... Bxg5 {[%timestamp 18]} 14. fxg5 {[%timestamp 13]}
+14... Bd7 {[%timestamp 17]} 15. g6 {[%timestamp 40]} 15... fxg6 {[%timestamp
+26]} 16. Rxf8+ {[%timestamp 6]} 16... Qxf8 {[%timestamp 19]} 17. Qb3
+{[%timestamp 31]} 17... Qc5+ {[%timestamp 31]} 18. Kf1 {[%timestamp 57]} 18...
+Bb5+ {[%timestamp 28]} 19. Ke1 {[%timestamp 24]} 19... b6 {[%timestamp 93]} 20.
+exd5 {[%timestamp 56]} 20... Nd7 {[%timestamp 79]} 21. d6+ {[%timestamp 104]}
+21... Bc4 {[%timestamp 31]} 22. Qd1 {[%timestamp 94]} 22... Re8+ {[%timestamp
+45]} 23. Kd2 {[%timestamp 40]} 23... Qe3+ {[%timestamp 39]} 24. Kc2 {[%timestamp
+16]} 24... Qf2+ {[%timestamp 185]} 25. Bd2 {[%timestamp 28]} 25... Re1
+{[%timestamp 60]} 26. Qg4 {[%timestamp 379]} 26... Be6 {[%timestamp 190]} 27.
+Qg5 {[%timestamp 101]} 27... Rxa1 {[%timestamp 54]} 28. Qd8+ {[%timestamp 48]}
+28... Qf8 {[%timestamp 52]} 29. Qc7 {[%timestamp 66]} 29... Bf5+ {[%timestamp
+35]} 30. Kb3 {[%timestamp 19]} 30... Qf7+ {[%timestamp 35]} 31. Ka4 {[%timestamp
+29]} 31... Nc5+ {[%timestamp 29]} 32. Kb5 {[%timestamp 14]} 32... Bd7+
+{[%timestamp 54]} 33. Kb4 {[%timestamp 81]} 33... a5+ {[%timestamp 64]} 34. Ka3
+{[%timestamp 157]} 34... Qxa2# {[%timestamp 21]} 0-1
 `
 
 export default pgnData
