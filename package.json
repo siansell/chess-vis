@@ -1,8 +1,7 @@
 {
   "name": "chess-vis",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Chess visualizations",
   "scripts": {
     "dev": "parcel index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,6 +15,9 @@
   "devDependencies": {
     "@types/chess.js": "^0.10.1",
     "@types/d3": "^6.3.0",
+    "eslint": "^7.20.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
     "parcel": "^1.12.4"
   }
 }
