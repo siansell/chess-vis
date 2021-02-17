@@ -18,8 +18,12 @@ const defaultConfig = {
 }
 
 const getFile = (x) => String.fromCharCode(x + 97) // Maps 0 -> 'a', 1 -> 'b' etc.
+
+// Maps 0 -> 8, 1 -> 7 etc.
 const getRank = (y, boardDimension) => boardDimension - (y % boardDimension)
+
 const getSquareName = (d, boardDimension) => `${getFile(d.x)}${getRank(d.y, boardDimension)}`
+
 const isWhiteSquare = (x, y) => (x % 2 === 0 && y % 2 === 0) || (x % 2 === 1 && y % 2 === 1)
 
 const drawBoard = (rootSelector = 'body', config = defaultConfig) => {
@@ -40,14 +44,14 @@ const drawBoard = (rootSelector = 'body', config = defaultConfig) => {
   const border = borderStyle === 'none' ? 'none' : `${borderWidth}px ${borderStyle} ${borderColour}`
 
   const squares = []
-  const boardId = `board-${uuid()}`
-
   for (let i = 0; i < boardDimension * boardDimension; i++) {
     squares.push({
       x: i % boardDimension,
       y: Math.floor(i / boardDimension),
     })
   }
+
+  const boardId = `board-${uuid()}`
 
   const board = d3
     .select(rootSelector)
