@@ -4,13 +4,15 @@
   "description": "Chess visualizations",
   "scripts": {
     "dev": "parcel ./src/index.html",
+    "build:pgn-parser": "pegjs -o ./src/lib/pgn-parser.js ./src/lib/pgn-parser.pegjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "d3": "^6.5.0"
+    "d3": "^6.5.0",
+    "pegjs": "^0.10.0"
   },
   "devDependencies": {
     "@types/chess.js": "^0.10.1",

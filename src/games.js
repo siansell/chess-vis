@@ -1,3 +1,4 @@
+const pgnData = `
 [Event "Live Chess"]
 [Site "Chess.com"]
 [Date "2021.02.16"]
@@ -30,3 +31,6 @@ b4 {[%timestamp 73]} 22... Rb8 {[%timestamp 28]} 23. b5 {[%timestamp 46]} 23...
 cxb5 {[%timestamp 32]} 24. Nxb5 {[%timestamp 10]} 24... Rcc8 {[%timestamp 36]}
 25. c6 {[%timestamp 59]} 25... Nb6 {[%timestamp 82]} 26. dxe5 {[%timestamp 8]}
 26... Ne8 {[%timestamp 6]} 1-0
+`
+
+export default pgnData
