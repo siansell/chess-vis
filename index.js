@@ -12,6 +12,7 @@ const blackSquareColour = "#dee3e0"
 const getFile = x => String.fromCharCode(x + 97) // Maps 0 -> 'a', 1 -> 'b' etc.
 const getRank = y => boardDimension - y % boardDimension
 const getSquareName = d => `${getFile(d.x)}${getRank(d.y)}`
+const isWhiteSquare = (x, y) => (x % 2 === 0 && y % 2 === 0) || (x % 2 === 1 && y % 2 === 1)
 
 const board = [];
 
@@ -47,13 +48,7 @@ svg
     .attr("y", d => d.y * squareSize)
     .attr("width", `${squareSize}px`)
     .attr("height", `${squareSize}px`)
-    .style("fill", d => {
-        if ((d.x % 2 === 0 && d.y % 2 === 0)
-            || (d.x % 2 === 1 && d.y % 2 === 1)) {
-            return whiteSquareColour
-        }
-        return blackSquareColour
-    })
+    .style("fill", d => isWhiteSquare(d.x, d.y) ? whiteSquareColour : blackSquareColour)
     .on('click', (e, d) => console.log(e.target, d, getSquareName(d)))
 
 svg
