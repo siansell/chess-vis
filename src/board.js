@@ -1,20 +1,20 @@
 import { v4 as uuid } from 'uuid'
 import * as d3 from 'd3'
+import { invert } from 'polished'
 
 // @TODO: showNotation just show rank and file on edge of board
 // @TODO: callbacks onSquareClick etc.
 const defaultConfig = {
   boardDimension: 8,
-  blackSquareColour: '#dee3e0',
-  borderColour: '#f0f5f2',
+  blackSquareColour: '#769656',
   borderStyle: 'solid',
   borderWidth: 10,
   marginLeft: 30,
   marginTop: 30,
   orientation: 'w',
-  showNotation: true,
+  showNotation: false,
   squareSize: 80,
-  whiteSquareColour: '#f0f5f2',
+  whiteSquareColour: '#eeeed2',
 }
 
 const getFile = (x) => String.fromCharCode(x + 97) // Maps 0 -> 'a', 1 -> 'b' etc.
@@ -28,6 +28,9 @@ const isWhiteSquare = (x, y) => (x % 2 === 0 && y % 2 === 0) || (x % 2 === 1 && 
 
 const drawBoard = (rootSelector = 'body', config = defaultConfig) => {
   const mergedConfig = { ...defaultConfig, ...config }
+  // Default border colour same as blackSquareColour
+  if (!mergedConfig.borderColour) mergedConfig.borderColour = mergedConfig.blackSquareColour
+
   const {
     blackSquareColour,
     borderColour,
@@ -105,6 +108,8 @@ const drawBoard = (rootSelector = 'body', config = defaultConfig) => {
       .attr('dominant-baseline', 'middle')
       .style('font-family', 'Verdana')
       .style('pointer-events', 'none')
+      .style('fill', (d) => (isWhiteSquare(d.x, d.y) ? invert(whiteSquareColour) : invert(blackSquareColour)))
+      // .style('font-weight', 'bold')
       .text((d) => getSquareName(d, boardDimension))
   }
 

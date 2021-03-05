@@ -3,20 +3,17 @@ import pgnParser from './lib/pgn-parser'
 import pgnData from './games'
 
 const board1 = drawBoard('#board1', {
-  borderStyle: 'dashed',
-  borderWidth: 10,
+  borderStyle: 'none',
   orientation: 'b',
-  // blackSquareColour: 'black',
-  whiteSquareColour: 'white',
 })
 const board2 = drawBoard('#board2', {
+  blackSquareColour: '#6E6D6B',
+  whiteSquareColour: '#908F8D',
   boardDimension: 6,
   marginLeft: 100,
-  // orientation: 'b',
   squareSize: 40,
-  // showNotation: false,
 })
 console.log(board1, board2)
 
-const result = pgnParser.parse(pgnData)
-console.log(result)
+// const result = pgnParser.parse(pgnData)
+// console.log(result)
