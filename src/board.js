@@ -1,7 +1,6 @@
 import { v4 as uuid } from 'uuid'
 import * as d3 from 'd3'
 
-// @TODO: orientation 'w' | 'b'
 // @TODO: showNotation just show rank and file on edge of board
 // @TODO: callbacks onSquareClick etc.
 const defaultConfig = {
@@ -12,6 +11,7 @@ const defaultConfig = {
   borderWidth: 10,
   marginLeft: 30,
   marginTop: 30,
+  orientation: 'w',
   showNotation: true,
   squareSize: 80,
   whiteSquareColour: '#f0f5f2',
@@ -36,6 +36,7 @@ const drawBoard = (rootSelector = 'body', config = defaultConfig) => {
     borderWidth,
     marginLeft,
     marginTop,
+    orientation,
     showNotation,
     squareSize,
     whiteSquareColour,
@@ -44,6 +45,7 @@ const drawBoard = (rootSelector = 'body', config = defaultConfig) => {
   const border = borderStyle === 'none' ? 'none' : `${borderWidth}px ${borderStyle} ${borderColour}`
 
   const squares = []
+
   for (let i = 0; i < boardDimension * boardDimension; i++) {
     squares.push({
       x: i % boardDimension,
@@ -74,8 +76,14 @@ const drawBoard = (rootSelector = 'body', config = defaultConfig) => {
 
   svg
     .append('rect')
-    .attr('x', (d) => d.x * squareSize)
-    .attr('y', (d) => d.y * squareSize)
+    .attr('x', (d) => {
+      if (orientation === 'w') return d.x * squareSize
+      return Math.abs(d.x - (boardDimension - 1)) * squareSize
+    })
+    .attr('y', (d) => {
+      if (orientation === 'w') return d.y * squareSize
+      return Math.abs(d.y - (boardDimension - 1)) * squareSize
+    })
     .attr('width', `${squareSize}px`)
     .attr('height', `${squareSize}px`)
     .style('fill', (d) => (isWhiteSquare(d.x, d.y) ? whiteSquareColour : blackSquareColour))
@@ -85,8 +93,14 @@ const drawBoard = (rootSelector = 'body', config = defaultConfig) => {
   if (showNotation) {
     svg
       .append('text')
-      .attr('x', (d) => d.x * squareSize + squareSize / 2)
-      .attr('y', (d) => d.y * squareSize + squareSize / 2)
+      .attr('x', (d) => {
+        if (orientation === 'w') return d.x * squareSize + squareSize / 2
+        return Math.abs(d.x - (boardDimension - 1)) * squareSize + squareSize / 2
+      })
+      .attr('y', (d) => {
+        if (orientation === 'w') return d.y * squareSize + squareSize / 2
+        return Math.abs(d.y - (boardDimension - 1)) * squareSize + squareSize / 2
+      })
       .attr('text-anchor', 'middle')
       .attr('dominant-baseline', 'middle')
       .style('font-family', 'Verdana')
