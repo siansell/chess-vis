@@ -22,7 +22,11 @@ const getFile = (x) => String.fromCharCode(x + 97) // Maps 0 -> 'a', 1 -> 'b' et
 // Maps 0 -> 8, 1 -> 7 etc.
 const getRank = (y, boardDimension) => boardDimension - (y % boardDimension)
 
-const getSquareName = (d, boardDimension) => `${getFile(d.x)}${getRank(d.y, boardDimension)}`
+/* eslint-disable arrow-body-style */
+export const getSquareName = (d, boardDimension = defaultConfig.boardDimension) => {
+  return `${getFile(d.x)}${getRank(d.y, boardDimension)}`
+}
+/* eslint-enable arrow-body-style */
 
 const isWhiteSquare = (x, y) => (x % 2 === 0 && y % 2 === 0) || (x % 2 === 1 && y % 2 === 1)
 

@@ -15,6 +15,7 @@
             "error",
             "windows"
         ],
+        "max-len": ["error", 120],
         "no-console": ["off"],
         "no-plusplus": [
             "error", { "allowForLoopAfterthoughts": true }

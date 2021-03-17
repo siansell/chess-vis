@@ -1,9 +1,9 @@
 import { Chess } from 'chess.js'
 import short from 'short-uuid'
 
-const translator = short()
+import { FEN_START_POSITION } from './constants'
 
-const FEN_START_POSITION = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'
+const translator = short()
 
 const extendMoves = (moves, opts = {}) => {
   const startFen = opts.startDen || FEN_START_POSITION
@@ -23,7 +23,7 @@ const extendMoves = (moves, opts = {}) => {
       const fenAfter = c.fen()
 
       const ravs = m.ravs
-        ? m.ravs.map((r) => extendMoves(
+        ? m.ravs.map((r) => extendMoves( // ooh recursion
           r.moves,
           {
             startFen: fenBefore,
