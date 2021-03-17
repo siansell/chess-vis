@@ -5,12 +5,10 @@ const translator = short()
 
 const FEN_START_POSITION = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'
 
-const extendMoves = (moves, opts = {
-  startFen: FEN_START_POSITION,
-  variationId: translator.new(),
-  parentVariationId: null,
-}) => {
-  const { startFen, variationId, parentVariationId } = opts
+const extendMoves = (moves, opts = {}) => {
+  const startFen = opts.startDen || FEN_START_POSITION
+  const variationId = opts.variationId || translator.new()
+  const parentVariationId = opts.parentVariationId || null
 
   const c = new Chess(startFen)
 
@@ -26,10 +24,12 @@ const extendMoves = (moves, opts = {
 
       const ravs = m.ravs
         ? m.ravs.map((r) => extendMoves(
-          fenBefore,
           r.moves,
-          translator.new(),
-          variationId,
+          {
+            startFen: fenBefore,
+            variationId: translator.new(),
+            parentVariationId: variationId,
+          },
         ))
         : null
 
