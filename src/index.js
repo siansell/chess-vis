@@ -29,9 +29,7 @@ board.forEach((rank, rankIndex) => {
     const square = board[rankIndex][fileIndex]
     if (square) {
       const squareName = getSquareName({ x: fileIndex, y: rankIndex })
-      pieceMap[`${square.color}${square.type}-${squareName}`] = {
-        squares: [squareName],
-      }
+      pieceMap[`${square.color}${square.type}-${squareName}`] = [squareName]
     }
   })
 })
@@ -42,8 +40,8 @@ moves.forEach((move) => {
   pieceKeys.forEach((key) => {
     const piece = pieceMap[key]
     // Find the piece that is moving, and push the destination square to the squares array
-    if (piece.squares[piece.squares.length - 1] === move.from) {
-      pieceMap[key].squares.push(move.to)
+    if (piece[piece.length - 1] === move.from) {
+      pieceMap[key].push(move.to)
     }
   })
 })
