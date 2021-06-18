@@ -1,5 +1,3 @@
-// @TODO: handle en-passant
-
 import { Chess } from 'chess.js'
 import * as d3 from 'd3'
 
@@ -65,8 +63,6 @@ games.forEach((game) => {
         pieceMap['br-a8'].push('d8')
       }
     }
-
-  // @TODO: handle en passant
   })
 
   Object.keys(pieceMap).forEach((key) => {
