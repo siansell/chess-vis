@@ -7,15 +7,16 @@ import extendMoves from './lib/extendMoves'
 import pgnData from './games'
 import { FEN_START_POSITION } from './lib/constants'
 
-const { board: svg } = drawBoard('#board1', {
+const { board: boardDiv } = drawBoard('#board1', {
   borderStyle: 'none',
   // showNotation: true,
 })
+const svg = boardDiv.selectChild() // the svg elemnent @TODO: selectChild() isn't ideal
 
 const games = pgnParser.parse(pgnData)
 const game = games[0]
 const moves = extendMoves(game.moves)
-console.log(game, moves)
+// console.log(game, moves)
 
 // If the PGN doesn't start from the initial position, gran the FEN from the game headers
 const startFen = Object.keys(game.headers).includes('SetUp') && Object.keys(game.headers).includes('FEN')
@@ -48,14 +49,16 @@ moves.forEach((move) => {
   })
 })
 
-// console.log(svg)
+// console.log(svg.select('svg'))
 // console.log(board)
 // console.log(pieceMap)
+// const lineSvg = svg.append('svg')
+// console.log(lineSvg)
 
 Object.keys(pieceMap).forEach((key) => {
 // const key = Object.keys(pieceMap)[0]
   const pieceColour = key[0]
-  console.log(pieceColour)
+  // console.log(pieceColour)
 
   const visitedSquares = pieceMap[key]
   visitedSquares.forEach((square, index) => {
@@ -73,8 +76,7 @@ Object.keys(pieceMap).forEach((key) => {
         x: nextSquareX, y: nextSquareY, width: nextSquareWidth, height: nextSquareHeight,
       } = nextSquareRect.node().getBBox()
 
-      // @TODO: lines are partially hidden by the rect elements
-      squareG
+      svg
         .append('line')
         .style('stroke', 'black')
         .style('stroke-width', '4')

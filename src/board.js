@@ -81,6 +81,7 @@ const drawBoard = (rootSelector = 'body', config = defaultConfig) => {
     .enter()
     .append('g')
     .attr('data-square', (d) => getSquareName(d))
+    // .attr('id', (d) => getSquareName(d))
 
   svg
     .append('rect')
