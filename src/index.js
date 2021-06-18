@@ -73,6 +73,7 @@ Object.keys(pieceMap).forEach((key) => {
         x: nextSquareX, y: nextSquareY, width: nextSquareWidth, height: nextSquareHeight,
       } = nextSquareRect.node().getBBox()
 
+      // @TODO: lines are partially hidden by the rect elements
       squareG
         .append('line')
         .style('stroke', 'black')
