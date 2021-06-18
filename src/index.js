@@ -1,3 +1,6 @@
+// @TODO: doesn't handle castling properly (need to include rook move)
+// and en-passant?
+
 import { Chess } from 'chess.js'
 import * as d3 from 'd3'
 
@@ -61,6 +64,7 @@ Object.keys(pieceMap).forEach((key) => {
   // console.log(pieceColour)
 
   const visitedSquares = pieceMap[key]
+  console.log(key, visitedSquares)
   visitedSquares.forEach((square, index) => {
     const squareG = d3.select(`[data-square='${square}']`)
     const squareRect = squareG.select('rect')
@@ -75,6 +79,8 @@ Object.keys(pieceMap).forEach((key) => {
       const {
         x: nextSquareX, y: nextSquareY, width: nextSquareWidth, height: nextSquareHeight,
       } = nextSquareRect.node().getBBox()
+
+      console.log(square, nextSquare, x, y, nextSquareX, nextSquareY)
 
       svg
         .append('line')
