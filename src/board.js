@@ -80,6 +80,7 @@ const drawBoard = (rootSelector = 'body', config = defaultConfig) => {
     .data(squares)
     .enter()
     .append('g')
+    .attr('data-square', (d) => getSquareName(d))
 
   svg
     .append('rect')
