@@ -52,16 +52,8 @@ moves.forEach((move) => {
   })
 })
 
-// console.log(svg.select('svg'))
-// console.log(board)
-// console.log(pieceMap)
-// const lineSvg = svg.append('svg')
-// console.log(lineSvg)
-
 Object.keys(pieceMap).forEach((key) => {
-// const key = Object.keys(pieceMap)[0]
   const pieceColour = key[0]
-  // console.log(pieceColour)
 
   const visitedSquares = pieceMap[key]
   console.log(key, visitedSquares)
@@ -87,12 +79,10 @@ Object.keys(pieceMap).forEach((key) => {
         .style('stroke', 'black')
         .style('stroke-width', '4')
         .style('opacity', pieceColour === 'w' ? 0.3 : 1)
-        .attr('x1', x + width / 2) // x position of the first end of the line
-        .attr('y1', y + height / 2) // y position of the first end of the line
-        .attr('x2', nextSquareX + nextSquareWidth / 2) // x position of the second end of the line
-        .attr('y2', nextSquareY + nextSquareHeight / 2) // y position of the second end of the line
+        .attr('x1', x + width / 2)
+        .attr('y1', y + height / 2)
+        .attr('x2', nextSquareX + nextSquareWidth / 2)
+        .attr('y2', nextSquareY + nextSquareHeight / 2)
     }
   })
 })
-
-// svg.selectAll('rect').remove()

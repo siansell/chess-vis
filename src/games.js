@@ -12,6 +12,21 @@ const pgnData = `
 [TimeControl "180"]
 [EndTime "14:28:06 PST"]
 [Termination "siansell won by resignation"]
+1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. O-O 1/2-1/2
+
+[Event "Live Chess"]
+[Site "Chess.com"]
+[Date "2021.02.16"]
+[Round "?"]
+[White "siansell"]
+[Black "Arasvard"]
+[Result "1-0"]
+[ECO "D02"]
+[WhiteElo "2493"]
+[BlackElo "2480"]
+[TimeControl "180"]
+[EndTime "14:28:06 PST"]
+[Termination "siansell won by resignation"]
 
 1. d4 {[%timestamp 1]} 1... d5 {[%timestamp 1]} 2. Nf3 {[%timestamp 12]} 2...
 Bf5 {[%timestamp 21]} 3. Bf4 {[%timestamp 9]} 3... e6 {[%timestamp 7]} 4. c4
