@@ -12,7 +12,7 @@ const pgnData = `
 [TimeControl "180"]
 [EndTime "14:28:06 PST"]
 [Termination "siansell won by resignation"]
-1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. O-O 1/2-1/2
+1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. O-O Be7 5. Re1 O-O 1/2-1/2
 
 [Event "Live Chess"]
 [Site "Chess.com"]
