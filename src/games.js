@@ -11,7 +11,7 @@ const pgnData = `
 [BlackElo "2480"]
 [TimeControl "180"]
 [EndTime "14:28:06 PST"]
-[Termination "siansell won by resignation"]
+[Termination "Draw by agreement"]
 
 1. e4 c5 2. e5 d5 3. exd6 1/2-1/2
 
@@ -27,7 +27,7 @@ const pgnData = `
 [BlackElo "2480"]
 [TimeControl "180"]
 [EndTime "14:28:06 PST"]
-[Termination "siansell won by resignation"]
+[Termination "Draw by agreement"]
 1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. O-O Be7 5. Re1 O-O 1/2-1/2
 
 [Event "Live Chess"]
